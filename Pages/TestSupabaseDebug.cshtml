@@ -1,0 +1,121 @@
+@page
+@model Hackaton_2025.Pages.TestSupabaseModel
+@{
+    ViewData["Title"] = "Test Supabase - Debug";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="mb-0">🐛 Test Supabase - Mode Debug</h3>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">
+                        Page de debug pour diagnostiquer les problèmes de configuration Supabase.
+                    </p>
+
+                    @if (!string.IsNullOrEmpty(Model.TestResult))
+                    {
+                        <div class="alert @(Model.IsSuccess ? "alert-success" : "alert-danger")" role="alert">
+                            <pre style="white-space: pre-wrap; margin-bottom: 0;">@Model.TestResult</pre>
+                        </div>
+                    }
+
+                    <div class="row g-3">
+                        <!-- Test de génération d'ID -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">🆔 Test Génération ID</h5>
+                                    <p class="card-text">Tester la génération d'ID d'entreprise.</p>
+                                    <form method="post" asp-page-handler="TestIdGeneration">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-key"></i> Tester ID
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test de création entreprise seule -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">🏢 Test Création Entreprise</h5>
+                                    <p class="card-text">Créer une entreprise sans upload de document.</p>
+                                    <form method="post" asp-page-handler="TestCompanyCreation">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-building"></i> Créer Entreprise
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test d'upload seul -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">📤 Test Upload Seul</h5>
+                                    <p class="card-text">Tester l'upload avec une entreprise existante.</p>
+                                    <form method="post" asp-page-handler="TestUploadOnly">
+                                        <button type="submit" class="btn btn-info">
+                                            <i class="fas fa-upload"></i> Test Upload
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test complet original -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">🔄 Test Complet</h5>
+                                    <p class="card-text">Test complet : création + upload.</p>
+                                    <form method="post" asp-page-handler="TestInsert">
+                                        <button type="submit" class="btn btn-warning">
+                                            <i class="fas fa-cogs"></i> Test Complet
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <!-- Informations de debug -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>🔧 Informations de Configuration</h5>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td><strong>Company ID Test:</strong></td>
+                                        <td><code>@Model.TestCompanyId</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Timestamp:</strong></td>
+                                        <td><code>@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</code></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <a href="/TestSupabase" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left"></i> Retour aux Tests Normaux
+                                </a>
+                                <a href="/Create" class="btn btn-outline-primary">
+                                    <i class="fas fa-plus"></i> Créer un Chatbot
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,205 @@
+﻿@page
+@model SuccessModel
+@{
+    ViewData["Title"] = "Chatbot créé avec succès";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Animation de succès -->
+            <div class="text-center mb-5">
+                <div class="success-animation">
+                    <div class="checkmark-container">
+                        <div class="checkmark">
+                            <div class="checkmark-circle"></div>
+                            <div class="checkmark-stem"></div>
+                            <div class="checkmark-kick"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="display-4 fw-bold gradient-text mt-4 mb-3">
+                    🎉 Félicitations !
+                </h1>
+                <p class="lead text-light mb-4">
+                    Votre chatbot a été créé avec succès et est en cours de configuration.
+                </p>
+            </div>
+
+            <!-- Informations du chatbot -->
+            <div class="glass-card p-4 mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4 class="text-primary mb-2">
+                            <i class="fas fa-robot me-2"></i>
+                            @Model.ChatbotName
+                        </h4>
+                        <p class="text-muted mb-2">
+                            <strong>ID:</strong> @Model.ChatbotId
+                        </p>
+                        <p class="text-muted mb-0">
+                            <strong>Entreprise:</strong> @Model.CompanyName
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <span class="badge bg-warning px-3 py-2">
+                            <i class="fas fa-clock me-1"></i>
+                            Configuration en cours
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Étapes suivantes -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="next-step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h5>1. Email de confirmation</h5>
+                        <p>Vous recevrez un email avec les détails de votre chatbot dans quelques minutes.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="next-step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h5>2. Configuration IA</h5>
+                        <p>Notre intelligence artificielle analyse vos documents et configure votre assistant.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="next-step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h5>3. Déploiement</h5>
+                        <p>Votre chatbot sera prêt dans 10-15 minutes et intégrable sur votre site.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions rapides -->
+            <div class="text-center">
+                <div class="btn-group-lg" role="group">
+                    <a href="/" class="btn btn-outline-primary me-3">
+                        <i class="fas fa-home me-2"></i>
+                        Retour à l'accueil
+                    </a>
+                    
+                    <button class="btn btn-primary me-3" onclick="openChat()">
+                        <i class="fas fa-comments me-2"></i>
+                        Tester maintenant
+                    </button>
+                    
+                    <a href="/dashboard" class="btn btn-success">
+                        <i class="fas fa-tachometer-alt me-2"></i>
+                        Dashboard
+                    </a>
+                </div>
+            </div>
+
+            <!-- Partage -->
+            <div class="glass-card p-4 mt-5">
+                <h4 class="text-center text-primary mb-4">
+                    <i class="fas fa-share-alt me-2"></i>
+                    Partagez votre succès !
+                </h4>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-outline-primary w-100" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter me-2"></i>
+                            Twitter
+                        </button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-outline-primary w-100" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin me-2"></i>
+                            LinkedIn
+                        </button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button class="btn btn-outline-primary w-100" onclick="copyShareLink()">
+                            <i class="fas fa-copy me-2"></i>
+                            Copier le lien
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function openChat() {
+            const chatbot = document.querySelector('.nexgen-chatbot');
+            const floatingBtn = document.getElementById('quickStart');
+            
+            if (chatbot && !chatbot.classList.contains('nexgen-chat-open')) {
+                floatingBtn?.click();
+                
+                setTimeout(() => {
+                    const event = new CustomEvent('addBotMessage', {
+                        detail: { 
+                            message: 'Félicitations pour la création de votre chatbot ! 🎉 Voulez-vous que je vous explique comment l\'intégrer sur votre site web ?' 
+                        }
+                    });
+                    document.dispatchEvent(event);
+                }, 1000);
+            }
+        }
+
+        function shareOnTwitter() {
+            const text = "Je viens de créer mon chatbot IA personnalisé avec NexGen Labs ! 🤖✨";
+            const url = window.location.href;
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = window.location.href;
+            window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank');
+        }
+
+        function copyShareLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showNotification('Lien copié dans le presse-papiers !', 'success');
+            }).catch(() => {
+                showNotification('Erreur lors de la copie', 'error');
+            });
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = 'alert alert-' + (type === 'error' ? 'danger' : type) + ' alert-dismissible fade show notification-toast';
+            notification.innerHTML = message + '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Animation d'entrée des éléments
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.glass-card, .next-step-card');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 150 + 500);
+            });
+        });
+    </script>
+}
