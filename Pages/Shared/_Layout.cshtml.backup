@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NexGen Labs</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/simple-chatbot.css" />
+
+    <!-- Google Fonts pour une meilleure typographie -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS futuriste inline -->
+    <style>
+        :root {
+            --bg-primary: #071024;
+            --bg-secondary: #081032;
+            --accent-primary: #7c3aed;
+            --accent-secondary: #06b6d4;
+            --text-primary: #e6eef8;
+            --text-muted: rgba(235,244,255,0.75);
+            --glass-bg: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.08);
+            --shadow-card: 0 8px 30px rgba(2,6,23,0.7);
+            --radius-lg: 14px;
+            --radius-sm: 8px;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: 
+                radial-gradient(1200px 600px at 10% 10%, rgba(12,34,86,0.25), transparent),
+                linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 60%);
+            color: var(--text-primary);
+            font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header/Navbar amélioré */
+        .navbar {
+            background: rgba(7,16,36,0.8) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(7,16,36,0.95) !important;
+            backdrop-filter: blur(15px);
+        }
+
+        .brand-badge {
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            color: #fff;
+            font-weight: 700;
+            border-radius: 10px;
+            box-shadow: 0 6px 26px rgba(8,12,40,0.6);
+            transition: transform 0.2s ease;
+        }
+
+        .brand-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-name {
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-left: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Navigation améliorée */
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Container principal */
+        .site-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Boutons améliorés */
+        .btn-accent {
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 30px rgba(8,12,40,0.6);
+            transition: all 0.3s ease;
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(8,12,40,0.8);
+            color: white;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: var(--glass-bg);
+            border-color: var(--glass-border);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Footer amélioré */
+        footer {
+            background: rgba(7,16,36,0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border);
+            color: rgba(235,244,255,0.6);
+            padding: 2rem 0 1rem;
+            margin-top: auto;
+        }
+
+        /* Bouton flottant */
+        .floating-start {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            z-index: 1050;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .floating-start:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(2,6,23,0.8);
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 991px) {
+            .navbar-nav {
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid var(--glass-border);
+            }
+        }
+
+        @@media (max-width: 767px) {
+            .brand-name {
+                display: none;
+            }
+            .site-container {
+                padding: 0 1rem;
+            }
+            .floating-start {
+                right: 1rem;
+                bottom: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @@media (max-width: 576px) {
+            .navbar {
+                padding: 0.75rem 0;
+            }
+            .site-container {
+                padding: 0 0.75rem;
+            }
+        }
+
+        /* Accessibilité */
+        a:focus, button:focus, .nav-link:focus {
+            outline: 3px solid rgba(96,165,250,0.4);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+
+        /* Animation de chargement */
+        @@keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll smooth */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg" id="mainNavbar">
+            <div class="container-fluid site-container">
+                <a class="d-flex align-items-center text-decoration-none" asp-area="" asp-page="/Index">
+                    <div class="brand-badge" aria-label="NexGen Labs">NG</div>
+                    <div class="brand-name">NexGen <small style="opacity:.8;">Labs</small></div>
+                </a>
+
+                <button class="navbar-toggler border-0 text-light" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" 
+                        aria-label="Basculer la navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                    <ul class="navbar-nav align-items-center gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link px-3" asp-area="" asp-page="/Index">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" asp-area="" asp-page="/Create">Créer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" asp-area="" asp-page="/Docs">Documentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" asp-area="" asp-page="/Privacy">Confidentialité</a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a class="btn btn-accent btn-sm" asp-page="/Create">Commencer</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid px-0 flex-grow-1">
+        <main role="main" class="site-container fade-in-up">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="mt-5">
+        <div class="site-container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-2 mb-md-0">
+                        &copy; @DateTime.Now.Year NexGen Labs - Prototype Hackathon 2025
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 small text-muted">
+                        Construit avec ASP.NET Core • Design Responsif • Accessible
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton d'action flottant -->
+    <button class="floating-start" id="quickStart" title="Chat simple" aria-label="Chat simple">
+        +
+    </button>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/simple-chatbot.js"></script>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // Effet de navbar au scroll
+            const navbar = document.getElementById('mainNavbar');
+            let isScrolled = false;
+
+            function updateNavbar() {
+                const shouldBeScrolled = window.scrollY > 50;
+                if (shouldBeScrolled !== isScrolled) {
+                    isScrolled = shouldBeScrolled;
+                    navbar.classList.toggle('scrolled', isScrolled);
+                }
+            }
+
+            window.addEventListener('scroll', updateNavbar);
+            updateNavbar(); // Initial check
+
+            // Raccourci clavier : 'C' pour créer
+            document.addEventListener('keydown', function(e) {
+                const activeTag = document.activeElement.tagName.toLowerCase();
+                if (e.key.toLowerCase() === 'c' && activeTag !== 'input' && activeTag !== 'textarea') {
+                    if (window.simpleChatbot) window.simpleChatbot.toggleChat();
+                }
+            });
+
+            // Bouton flottant
+            const quickStartBtn = document.getElementById('quickStart');
+            if (quickStartBtn) {
+                quickStartBtn.addEventListener('click', function() {
+                    if (window.simpleChatbot) window.simpleChatbot.toggleChat();
+                });
+            }
+
+            // Amélioration de l'accessibilité du menu mobile
+            const navCollapse = document.getElementById('mainNav');
+            if (navCollapse) {
+                navCollapse.addEventListener('shown.bs.collapse', function() {
+                    const firstLink = navCollapse.querySelector('a.nav-link');
+                    if (firstLink) firstLink.focus();
+                });
+            }
+
+            // Scroll fluide pour les ancres
+            document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Gestion du thème (optionnel pour plus tard)
+            try {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                    document.body.classList.add('light-theme');
+                }
+            } catch (err) {
+                // Silencieux
+            }
+
+            // Animation d'entrée pour les éléments
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+        })();
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+

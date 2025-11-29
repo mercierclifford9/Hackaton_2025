@@ -1,0 +1,80 @@
+@page
+@model Hackaton_2025.Pages.DocumentsModel
+@{
+    ViewData["Title"] = "Documents uploadés";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Documents uploadés pour @Model.Company?.CompanyName</h2>
+            
+            @if (Model.Documents.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nom du fichier</th>
+                                <th>Statut</th>
+                                <th>Date d'upload</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var doc in Model.Documents)
+                            {
+                                <tr>
+                                    <td>@System.IO.Path.GetFileName(doc.FilePath)</td>
+                                    <td>
+                                        <span class="badge bg-@(doc.Status == "uploaded" ? "success" : "warning")">
+                                            @doc.Status
+                                        </span>
+                                    </td>
+                                    <td>@doc.UploadedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteDocument('@doc.Id')">
+                                            Supprimer
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info">
+                    Aucun document trouvé pour cette entreprise.
+                    <br>
+                    <strong>ID Entreprise:</strong> @Model.CompanyId<br>
+                    <strong>Dossier:</strong> @Model.Company?.FolderPath
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+async function deleteDocument(documentId) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce document ?')) {
+        try {
+            const response = await fetch(`/Documents?handler=DeleteDocument&documentId=${documentId}`, {
+                method: 'POST',
+                headers: {
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                }
+            });
+            
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert('Erreur lors de la suppression');
+            }
+        } catch (error) {
+            alert('Erreur lors de la suppression');
+        }
+    }
+}
+</script>

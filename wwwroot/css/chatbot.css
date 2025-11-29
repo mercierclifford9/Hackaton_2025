@@ -1,0 +1,628 @@
+﻿/* ============================================================================
+   Chatbot Styles - NexGen Labs (Version améliorée)
+   Styles pour le widget de chat interactif
+   ============================================================================ */
+
+/* Chatbot Container */
+.nexgen-chatbot {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 380px;
+    height: 520px;
+    background: linear-gradient(135deg, #071024 0%, #081032 60%, #0a0f2e 100%);
+    border-radius: 24px;
+    box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.4), 
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transform: translateY(120%) scale(0.7);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.nexgen-chatbot.nexgen-chat-open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Bouton flottant amélioré */
+.floating-start {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-start::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+.floating-start:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+.floating-start.nexgen-btn-hidden {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+}
+
+/* Header du chat amélioré */
+.nexgen-chat-header {
+    background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 50%, #8b5cf6 100%);
+    padding: 20px 24px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-radius: 24px 24px 0 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.nexgen-chat-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.nexgen-chat-avatar {
+    position: relative;
+}
+
+.nexgen-avatar-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.nexgen-status-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    background: #10b981;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: pulse-dot 2s infinite;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+@keyframes pulse-dot {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.1);
+    }
+}
+
+.nexgen-chat-info {
+    flex: 1;
+}
+
+.nexgen-chat-info h4 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nexgen-status {
+    font-size: 12px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.nexgen-header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.nexgen-action-btn,
+.nexgen-chat-close {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    backdrop-filter: blur(5px);
+    font-size: 16px;
+}
+
+.nexgen-action-btn:hover,
+.nexgen-chat-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.nexgen-chat-close {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+/* Zone des messages améliorée */
+.nexgen-chat-messages {
+    height: 340px;
+    overflow-y: auto;
+    padding: 20px 18px 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+}
+
+.nexgen-chat-messages::before {
+    content: "";
+    position: sticky;
+    top: 0;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(7, 16, 36, 0.8), transparent);
+    margin: -20px -18px 10px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nexgen-chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nexgen-chat-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.nexgen-chat-messages::-webkit-scrollbar-thumb {
+    background: rgba(124, 58, 237, 0.6);
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+.nexgen-chat-messages::-webkit-scrollbar-thumb:hover {
+    background: rgba(124, 58, 237, 0.8);
+}
+
+/* Messages améliorés */
+.nexgen-message {
+    max-width: 85%;
+    animation: slideInMessage 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+@keyframes slideInMessage {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.nexgen-message-user {
+    align-self: flex-end;
+}
+
+.nexgen-message-bot {
+    align-self: flex-start;
+}
+
+.nexgen-message-content {
+    padding: 14px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nexgen-message-user .nexgen-message-content {
+    background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+    color: white;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.nexgen-message-bot .nexgen-message-content {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    color: #e6eef8;
+    border-bottom-left-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+/* Code et formatting dans les messages */
+.nexgen-message-content code {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "JetBrains Mono", Monaco, Consolas, monospace;
+    font-size: 13px;
+}
+
+.nexgen-message-content pre {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    border-radius: 8px;
+    margin: 8px 0;
+    overflow-x: auto;
+    font-size: 12px;
+}
+
+.nexgen-message-content strong {
+    font-weight: 600;
+}
+
+.nexgen-message-content a {
+    color: #7dd3fc;
+    text-decoration: underline;
+}
+
+.nexgen-message-time {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.nexgen-message-user .nexgen-message-time {
+    text-align: right;
+}
+
+.nexgen-message-bot .nexgen-message-time {
+    text-align: left;
+}
+
+/* Indicateur de frappe amélioré */
+.nexgen-typing .nexgen-message-content {
+    padding: 18px 20px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.05));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.nexgen-typing-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.nexgen-typing-dots span {
+    width: 10px;
+    height: 10px;
+    background: #7c3aed;
+    border-radius: 50%;
+    animation: typing-bounce 1.4s infinite both;
+    box-shadow: 0 2px 4px rgba(124, 58, 237, 0.3);
+}
+
+.nexgen-typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.nexgen-typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    40% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+}
+
+/* Réponses rapides améliorées */
+.nexgen-quick-replies {
+    padding: 16px 18px 12px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nexgen-quick-btn {
+    padding: 8px 14px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.05));
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    border-radius: 20px;
+    color: #e6eef8;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    backdrop-filter: blur(5px);
+}
+
+.nexgen-quick-btn:hover {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.1));
+    border-color: #7c3aed;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+/* Zone de saisie améliorée */
+.nexgen-input-group {
+    display: flex;
+    padding: 18px;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nexgen-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 12px 18px;
+    color: #e6eef8;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    font-family: inherit;
+}
+
+.nexgen-input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+    transform: scale(1.02);
+}
+
+.nexgen-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.nexgen-send-btn {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #7c3aed, #06b6d4);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.nexgen-send-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+    background: linear-gradient(135deg, #8b5cf6, #0891b2);
+}
+
+.nexgen-send-btn:active {
+    transform: scale(0.95);
+}
+
+/* Footer amélioré */
+.nexgen-chat-footer {
+    padding: 12px 18px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0 0 24px 24px;
+}
+
+.nexgen-chat-footer small {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-weight: 500;
+    display: block;
+    line-height: 1.4;
+}
+
+/* Responsive Design amélioré */
+@media (max-width: 768px) {
+    .nexgen-chatbot {
+        width: calc(100vw - 24px);
+        height: calc(100vh - 100px);
+        bottom: 60px;
+        right: 12px;
+        left: 12px;
+        border-radius: 20px;
+    }
+    
+    .nexgen-chat-header {
+        padding: 16px 20px 14px;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .nexgen-chat-messages {
+        height: calc(100vh - 280px);
+        padding: 16px 14px;
+    }
+    
+    .nexgen-quick-replies {
+        padding: 12px 14px 8px;
+        gap: 6px;
+    }
+    
+    .nexgen-quick-btn {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    
+    .nexgen-input-group {
+        padding: 14px;
+        gap: 10px;
+    }
+    
+    .nexgen-chat-footer {
+        padding: 10px 14px;
+        border-radius: 0 0 20px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nexgen-chatbot {
+        width: calc(100vw - 16px);
+        height: calc(100vh - 80px);
+        bottom: 50px;
+        right: 8px;
+        left: 8px;
+        border-radius: 16px;
+    }
+    
+    .nexgen-chat-header {
+        padding: 14px 16px 12px;
+        border-radius: 16px 16px 0 0;
+    }
+    
+    .nexgen-avatar-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+    
+    .nexgen-chat-info h4 {
+        font-size: 15px;
+    }
+    
+    .nexgen-chat-footer {
+        border-radius: 0 0 16px 16px;
+    }
+}
+
+/* Animations d''interaction */
+@keyframes messageReceived {
+    0% { background-color: rgba(124, 58, 237, 0.1); }
+    100% { background-color: transparent; }
+}
+
+.nexgen-message-bot.new-message {
+    animation: messageReceived 0.6s ease-out;
+}
+
+/* États de chargement */
+.nexgen-chatbot.loading .nexgen-send-btn {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.nexgen-chatbot.loading .nexgen-send-btn svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Mode accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    .nexgen-chatbot,
+    .nexgen-message,
+    .nexgen-quick-btn,
+    .nexgen-send-btn,
+    .floating-start {
+        animation: none !important;
+        transition: opacity 0.2s, visibility 0.2s !important;
+    }
+    
+    .nexgen-typing-dots span {
+        animation: none !important;
+    }
+    
+    .nexgen-status-dot,
+    .nexgen-avatar-icon {
+        animation: none !important;
+    }
+}
+
+/* Mode contraste élevé */
+@media (prefers-contrast: high) {
+    .nexgen-chatbot {
+        border: 2px solid white;
+    }
+    
+    .nexgen-message-content {
+        border: 1px solid currentColor;
+    }
+    
+    .nexgen-quick-btn {
+        border: 1px solid currentColor;
+    }
+}
+
+/* Dark mode support amélioré */
+@media (prefers-color-scheme: light) {
+    .nexgen-chatbot {
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 60%, #e2e8f0 100%);
+        color: #334155;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .nexgen-message-bot .nexgen-message-content {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+        color: #374151;
+        border-color: #d1d5db;
+    }
+}
+
+/* Effets de focus pour l''accessibilité */
+.nexgen-quick-btn:focus,
+.nexgen-send-btn:focus,
+.nexgen-input:focus,
+.nexgen-action-btn:focus,
+.nexgen-chat-close:focus {
+    outline: 2px solid #7c3aed;
+    outline-offset: 2px;
+}

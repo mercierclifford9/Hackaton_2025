@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>Favicon Generator</title></head>
+<body>
+<canvas id="favicon" width="32" height="32" style="border:1px solid #ccc;"></canvas>
+<script>
+const canvas = document.getElementById("favicon");
+const ctx = canvas.getContext("2d");
+
+// Créer le gradient
+const gradient = ctx.createLinearGradient(0, 0, 32, 32);
+gradient.addColorStop(0, "#7c3aed");
+gradient.addColorStop(1, "#06b6d4");
+
+// Dessiner le background arrondi
+ctx.fillStyle = gradient;
+ctx.beginPath();
+ctx.roundRect(0, 0, 32, 32, 6);
+ctx.fill();
+
+// Dessiner le texte NG
+ctx.fillStyle = "white";
+ctx.font = "bold 18px system-ui, sans-serif";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.fillText("NG", 16, 16);
+
+// Convertir en data URL et télécharger
+setTimeout(() => {
+  const dataURL = canvas.toDataURL("image/png");
+  const link = document.createElement("a");
+  link.download = "favicon-ng.png";
+  link.href = dataURL;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  console.log("Favicon généré et téléchargé !");
+}, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿@page
+@model DocsModel
+@{
+    ViewData["Title"] = "Documentation";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card-glass p-3 mb-4">
+                <h6 class="fw-bold mb-3">Navigation</h6>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link" href="#quick-start">Démarrage rapide</a>
+                    <a class="nav-link" href="#integration">Intégration</a>
+                    <a class="nav-link" href="#personnalisation">Personnalisation</a>
+                    <a class="nav-link" href="#api">API Reference</a>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="col-lg-9">
+            <div class="mb-5">
+                <h1 class="display-5 fw-bold gradient-text">Documentation NexGen</h1>
+                <p class="lead">Tout ce que vous devez savoir pour intégrer et personnaliser votre chatbot</p>
+            </div>
+
+            <section id="quick-start" class="mb-5">
+                <h2 class="h3 fw-bold mb-3">🚀 Démarrage rapide</h2>
+                <div class="card-glass p-4">
+                    <p>Intégrez votre chatbot en quelques minutes :</p>
+                    <ol>
+                        <li class="mb-2"><strong>Créez votre compte</strong> et configurez votre chatbot</li>
+                        <li class="mb-2"><strong>Personnalisez</strong> l''apparence et les réponses</li>
+                        <li class="mb-2"><strong>Copiez le code</strong> d''intégration</li>
+                        <li class="mb-2"><strong>Collez-le</strong> avant la fermeture de votre balise &lt;/body&gt;</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="integration" class="mb-5">
+                <h2 class="h3 fw-bold mb-3">🔧 Code d''intégration</h2>
+                <div class="card-glass p-4">
+                    <p>Voici le code à intégrer sur votre site :</p>
+                    <pre class="bg-dark p-3 rounded"><code>&lt;!-- NexGen Chatbot Widget --&gt;
+&lt;script async src="https://cdn.nexgen-labs.com/widget.js"&gt;&lt;/script&gt;
+&lt;div id="nexgen-chat"&gt;&lt;/div&gt;
+&lt;script&gt;
+  window.NexGen && NexGen.init({
+    apiKey: "your-api-key",
+    containerId: "#nexgen-chat",
+    theme: "dark",
+    language: "fr",
+    position: "bottom-right"
+  });
+&lt;/script&gt;</code></pre>
+                </div>
+            </section>
+
+            <section id="personnalisation" class="mb-5">
+                <h2 class="h3 fw-bold mb-3">🎨 Personnalisation</h2>
+                <div class="card-glass p-4">
+                    <p>Options de configuration disponibles :</p>
+                    <ul>
+                        <li><code>theme</code> : "light" | "dark" | "auto"</li>
+                        <li><code>position</code> : "bottom-left" | "bottom-right"</li>
+                        <li><code>primaryColor</code> : Couleur principale (hex)</li>
+                        <li><code>language</code> : "fr" | "en" | "es" | "de"</li>
+                        <li><code>welcomeMessage</code> : Message de bienvenue personnalisé</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="api" class="mb-5">
+                <h2 class="h3 fw-bold mb-3">📚 API Reference</h2>
+                <div class="card-glass p-4">
+                    <p>Méthodes JavaScript disponibles :</p>
+                    <ul>
+                        <li><code>NexGen.open()</code> - Ouvre le chatbot</li>
+                        <li><code>NexGen.close()</code> - Ferme le chatbot</li>
+                        <li><code>NexGen.sendMessage(text)</code> - Envoie un message</li>
+                        <li><code>NexGen.setUser(userInfo)</code> - Définit les infos utilisateur</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="text-center mt-5">
+                <p class="text-muted">Besoin d''aide ? <button class="btn btn-link p-0" onclick="openChatWithSupport()">Contactez notre support</button></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

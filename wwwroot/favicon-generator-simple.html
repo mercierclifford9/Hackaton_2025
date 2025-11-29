@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Simple NG</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .favicon-demo { 
+            width: 32px; 
+            height: 32px; 
+            background: linear-gradient(45deg, #7c3aed, #06b6d4); 
+            border-radius: 6px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            font-weight: bold; 
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        canvas { border: 1px solid #ddd; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h2>🎨 Favicon NG Generator</h2>
+    <div class="favicon-demo">NG</div>
+    
+    <h3>Canvas Generated:</h3>
+    <canvas id="favicon16" width="16" height="16"></canvas>
+    <canvas id="favicon32" width="32" height="32"></canvas>
+    <canvas id="favicon48" width="48" height="48"></canvas>
+    
+    <br><br>
+    <button onclick="downloadFavicons()">📥 Télécharger tous les favicons</button>
+    
+    <script>
+        function createFavicon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#7c3aed');
+            gradient.addColorStop(1, '#06b6d4');
+            
+            // Background
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${Math.floor(size * 0.5)}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('NG', size/2, size/2);
+            
+            return canvas;
+        }
+        
+        function downloadCanvas(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadFavicons() {
+            downloadCanvas(createFavicon('favicon16', 16), 'favicon-16x16.png');
+            downloadCanvas(createFavicon('favicon32', 32), 'favicon-32x32.png');
+            downloadCanvas(createFavicon('favicon48', 48), 'favicon-48x48.png');
+            alert('Favicons téléchargés ! Renommez favicon-32x32.png en favicon.ico et remplacez le fichier existant.');
+        }
+        
+        // Générer automatiquement
+        createFavicon('favicon16', 16);
+        createFavicon('favicon32', 32);
+        createFavicon('favicon48', 48);
+        
+        console.log('✅ Favicons générés dans les canvas');
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Chatbot Fix</title>
+    <link rel="stylesheet" href="wwwroot/css/simple-chatbot.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #071024 0%, #081032 60%);
+            color: white;
+            font-family: Inter, system-ui, sans-serif;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .test-info {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .floating-start {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            z-index: 1050;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+            background: linear-gradient(90deg, #7c3aed, #06b6d4);
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .floating-start:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+        .debug-section {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .debug-section button {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            margin: 0.25rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>🔧 Test de correction du Chatbot</h1>
+        <p>Cette page teste le chatbot corrigé. Cliquez sur le bouton flottant en bas à droite pour ouvrir le chat.</p>
+        <p><strong>Problème résolu :</strong></p>
+        <ul>
+            <li>✅ Élimination du double gestionnaire d''événements</li>
+            <li>✅ Initialisation améliorée du DOM</li>
+            <li>✅ Gestion robuste du bouton flottant</li>
+            <li>✅ Logs de débogage intégrés</li>
+        </ul>
+        
+        <div class="debug-section">
+            <h3>🔍 Outils de débogage</h3>
+            <button onclick="window.debugChatbot()">Debug Info Console</button>
+            <button onclick="testFloatingButton()">Test Bouton Flottant</button>
+            <button onclick="testChatToggle()">Test Toggle Direct</button>
+            <div id="debug-output" style="margin-top: 1rem; font-family: monospace; font-size: 0.9em;"></div>
+        </div>
+    </div>
+
+    <!-- Bouton flottant -->
+    <button class="floating-start" id="quickStart" title="Chat simple" aria-label="Chat simple">
+        💬
+    </button>
+
+    <script src="wwwroot/js/simple-chatbot-fixed.js"></script>
+    <script>
+        function testFloatingButton() {
+            const btn = document.getElementById("quickStart");
+            const output = document.getElementById("debug-output");
+            
+            output.innerHTML = `
+                <strong>Test du bouton flottant:</strong><br>
+                • Élément trouvé: ${btn ? "✅ OUI" : "❌ NON"}<br>
+                • ID: ${btn ? btn.id : "N/A"}<br>
+                • Style display: ${btn ? btn.style.display || "par défaut" : "N/A"}<br>
+                • Chatbot instance: ${window.simpleChatbot ? "✅ OUI" : "❌ NON"}<br>
+                • Chatbot initialisé: ${window.simpleChatbot?.initialized ? "✅ OUI" : "❌ NON"}
+            `;
+            
+            if (btn) {
+                btn.click();
+                output.innerHTML += "<br>• Clic simulé: ✅ FAIT";
+            }
+        }
+        
+        function testChatToggle() {
+            const output = document.getElementById("debug-output");
+            
+            if (window.simpleChatbot) {
+                window.simpleChatbot.toggleChat();
+                output.innerHTML = "✅ Toggle direct appelé avec succès";
+            } else {
+                output.innerHTML = "❌ Aucune instance de chatbot trouvée";
+            }
+        }
+        
+        // Test automatique au chargement
+        setTimeout(() => {
+            console.log("=== Test Automatique du Chatbot ===");
+            if (window.debugChatbot) window.debugChatbot();
+        }, 1000);
+    </script>
+</body>
+</html>

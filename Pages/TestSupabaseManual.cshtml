@@ -1,0 +1,88 @@
+@page
+@model Hackaton_2025.Pages.TestSupabaseModel
+@{
+    ViewData["Title"] = "Test Manuel Supabase";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">🔧 Test Manuel Supabase - Insertion Directe</h3>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">
+                        Test d'insertion manuelle pour diagnostiquer les problèmes de clé primaire.
+                    </p>
+
+                    @if (!string.IsNullOrEmpty(Model.TestResult))
+                    {
+                        <div class="alert @(Model.IsSuccess ? "alert-success" : "alert-danger")" role="alert">
+                            <pre style="white-space: pre-wrap; margin-bottom: 0;">@Model.TestResult</pre>
+                        </div>
+                    }
+
+                    <div class="row g-3">
+                        <!-- Test d'insertion SQL directe -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">🗄️ Test SQL Direct</h5>
+                                    <p class="card-text">Tester l'insertion avec une requête SQL directe.</p>
+                                    <form method="post" asp-page-handler="TestDirectSql">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-database"></i> Test SQL
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test avec dictionnaire -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">📋 Test Dictionnaire</h5>
+                                    <p class="card-text">Tester avec des données sous forme de dictionnaire.</p>
+                                    <form method="post" asp-page-handler="TestDictionary">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-list"></i> Test Dict
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <!-- Instructions -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>🔧 Instructions de Debug</h5>
+                            <ol>
+                                <li><strong>Vérifiez les logs de la console</strong> pour voir les messages de debug</li>
+                                <li><strong>Testez SQL Direct</strong> pour vérifier si le problème vient de Postgrest</li>
+                                <li><strong>Testez Dictionnaire</strong> pour éviter les problèmes de sérialisation</li>
+                            </ol>
+
+                            <div class="alert alert-warning">
+                                <strong>💡 Note :</strong> Vérifiez la console de développement (F12) et les logs de l'application pour plus de détails.
+                            </div>
+
+                            <div class="mt-3">
+                                <a href="/TestSupabaseDebug" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left"></i> Retour au Debug
+                                </a>
+                                <a href="/TestSupabase" class="btn btn-outline-primary">
+                                    <i class="fas fa-home"></i> Tests Principaux
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

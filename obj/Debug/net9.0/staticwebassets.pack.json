@@ -1,0 +1,369 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Hackaton_2025.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Hackaton_2025.80dv6qww1c.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\css\\chatbot.css",
+      "PackagePath": "staticwebassets\\css\\chatbot.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\css\\create-form.css",
+      "PackagePath": "staticwebassets\\css\\create-form.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\css\\footer-modern.css",
+      "PackagePath": "staticwebassets\\css\\footer-modern.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\css\\simple-chatbot.css",
+      "PackagePath": "staticwebassets\\css\\simple-chatbot.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\favicon-generator-simple.html",
+      "PackagePath": "staticwebassets\\favicon-generator-simple.html"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\favicon-original.ico.backup",
+      "PackagePath": "staticwebassets\\favicon-original.ico.backup"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\favicon.ico.backup",
+      "PackagePath": "staticwebassets\\favicon.ico.backup"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\favicon.svg",
+      "PackagePath": "staticwebassets\\favicon.svg"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\generate-favicon.html",
+      "PackagePath": "staticwebassets\\generate-favicon.html"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\image\\icone.png",
+      "PackagePath": "staticwebassets\\image\\icone.png"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\js\\chatbot.js",
+      "PackagePath": "staticwebassets\\js\\chatbot.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\js\\create-form.js",
+      "PackagePath": "staticwebassets\\js\\create-form.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\js\\footer-modern.js",
+      "PackagePath": "staticwebassets\\js\\footer-modern.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\js\\index-page.js",
+      "PackagePath": "staticwebassets\\js\\index-page.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\js\\simple-chatbot-fixed.js",
+      "PackagePath": "staticwebassets\\js\\simple-chatbot-fixed.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\js\\simple-chatbot.js",
+      "PackagePath": "staticwebassets\\js\\simple-chatbot.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\uploads\\0405dd3d-a75b-4609-893b-91aaebe5d1d9\\c71a3091-b0f7-45fe-8db9-0e88c971189c_Nebula Financial.pdf",
+      "PackagePath": "staticwebassets\\uploads\\0405dd3d-a75b-4609-893b-91aaebe5d1d9\\c71a3091-b0f7-45fe-8db9-0e88c971189c_Nebula Financial.pdf"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\uploads\\156a1b54-3c46-4afa-a782-311a9c8e1936\\0d2fc6f0-9791-440d-9bd5-0c292bb0a122_Proforma_MC_Business.docx",
+      "PackagePath": "staticwebassets\\uploads\\156a1b54-3c46-4afa-a782-311a9c8e1936\\0d2fc6f0-9791-440d-9bd5-0c292bb0a122_Proforma_MC_Business.docx"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\uploads\\2ec7ce67-d9b9-4e33-9e8c-d35f022246ec\\1ec60de6-a482-48bb-90ec-4abce2020b11_ATTESTATION SUR L'HONNEUR FriKòb.pdf",
+      "PackagePath": "staticwebassets\\uploads\\2ec7ce67-d9b9-4e33-9e8c-d35f022246ec\\1ec60de6-a482-48bb-90ec-4abce2020b11_ATTESTATION SUR L'HONNEUR FriKòb.pdf"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\uploads\\899fc162-884b-45b3-bfc6-6477de32ea1d\\c5e70d7d-84de-41c0-a630-95c39558f701_Proforma_MC_Business.docx",
+      "PackagePath": "staticwebassets\\uploads\\899fc162-884b-45b3-bfc6-6477de32ea1d\\c5e70d7d-84de-41c0-a630-95c39558f701_Proforma_MC_Business.docx"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\uploads\\999bb151-487f-441b-9276-37646bcea565\\7c852dd0-8752-429f-a793-42a4a852fb38_ATTESTATION SUR L'HONNEUR MC BUSINESS.pdf",
+      "PackagePath": "staticwebassets\\uploads\\999bb151-487f-441b-9276-37646bcea565\\7c852dd0-8752-429f-a793-42a4a852fb38_ATTESTATION SUR L'HONNEUR MC BUSINESS.pdf"
+    },
+    {
+      "Id": "C:\\Projets\\Hackaton_2025\\wwwroot\\uploads\\ec587820-9f7c-4a80-a2de-b68ba9efa065\\8ac6a913-5f56-428b-a14f-e755c3205724_Nebula Financial.pdf",
+      "PackagePath": "staticwebassets\\uploads\\ec587820-9f7c-4a80-a2de-b68ba9efa065\\8ac6a913-5f56-428b-a14f-e755c3205724_Nebula Financial.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Hackaton_2025.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Hackaton_2025.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.Hackaton_2025.props",
+      "PackagePath": "build\\Hackaton_2025.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Hackaton_2025.props",
+      "PackagePath": "buildMultiTargeting\\Hackaton_2025.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.Hackaton_2025.props",
+      "PackagePath": "buildTransitive\\Hackaton_2025.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

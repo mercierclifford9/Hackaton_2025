@@ -1,0 +1,160 @@
+@page
+@model Hackaton_2025.Pages.TestSupabaseModel
+@{
+    ViewData["Title"] = "Test Supabase";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">🧪 Test de Configuration Supabase</h3>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">
+                        Cette page vous permet de tester votre configuration Supabase avant d'utiliser l'application en production.
+                    </p>
+
+                    @if (!string.IsNullOrEmpty(Model.TestResult))
+                    {
+                        <div class="alert @(Model.IsSuccess ? "alert-success" : "alert-danger")" role="alert">
+                            @Model.TestResult
+                        </div>
+                    }
+
+                    <div class="row g-3">
+                        <!-- Test de connexion -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">🔌 Test de Connexion</h5>
+                                    <p class="card-text">Vérifier que l'application peut se connecter à Supabase.</p>
+                                    <form method="post" asp-page-handler="TestConnection">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fas fa-plug"></i> Tester la Connexion
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test d'insertion -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">📤 Test d'Upload</h5>
+                                    <p class="card-text">Tester l'upload d'un fichier et l'insertion des métadonnées.</p>
+                                    <form method="post" asp-page-handler="TestInsert">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-upload"></i> Tester l'Upload
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test de récupération -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">📥 Test de Récupération</h5>
+                                    <p class="card-text">Tester la récupération des documents uploadés.</p>
+                                    <form method="post" asp-page-handler="TestRetrieve">
+                                        <button type="submit" class="btn btn-info">
+                                            <i class="fas fa-download"></i> Tester la Récupération
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test création entreprise -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">🏢 Test Création Entreprise</h5>
+                                    <p class="card-text">Tester la création d'une entreprise sans upload de document.</p>
+                                    <form method="post" asp-page-handler="TestCompanyCreation">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-building"></i> Tester la Création
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nettoyage -->
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">🧹 Nettoyage</h5>
+                                    <p class="card-text">Supprimer tous les fichiers de test créés.</p>
+                                    <form method="post" asp-page-handler="Cleanup">
+                                        <button type="submit" class="btn btn-warning">
+                                            <i class="fas fa-broom"></i> Nettoyer les Tests
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <!-- Instructions -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h5>📋 Instructions de Test</h5>
+                            <ol>
+                                <li><strong>Test de Connexion</strong> : Commence toujours par ça pour vérifier la connexion de base.</li>
+                                <li><strong>Test d'Upload</strong> : Teste l'upload d'un fichier fictif et la création des métadonnées.</li>
+                                <li><strong>Test de Récupération</strong> : Vérifie que tu peux récupérer les documents uploadés.</li>
+                                <li><strong>Nettoyage</strong> : Supprime tous les fichiers de test créés pour garder une base propre.</li>
+                            </ol>
+
+                            <div class="alert alert-info">
+                                <strong>💡 Conseil :</strong> Si un test échoue, vérifie ta configuration Supabase dans 
+                                <code>appsettings.json</code> et assure-toi que tes politiques RLS sont correctement configurées.
+                            </div>
+
+                            <div class="mt-3">
+                                @if (!string.IsNullOrEmpty(Model.TestCompanyId))
+                                {
+                                    <a href="/Documents?companyId=@Model.TestCompanyId" class="btn btn-outline-primary">
+                                        <i class="fas fa-eye"></i> Voir les Documents de Test (@Model.TestCompanyId)
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">
+                                        <i class="fas fa-info-circle"></i> Effectuez d'abord un test d'insertion pour voir les documents
+                                    </span>
+                                }
+                                <br><br>
+                                <a href="/Create" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left"></i> Retour à la Création
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Auto-reload après 3 secondes si succès
+        @if (Model.IsSuccess && !string.IsNullOrEmpty(Model.TestResult))
+        {
+            <text>
+            setTimeout(function() {
+                // Enlever l'alerte après succès
+                document.querySelector('.alert-success')?.remove();
+            }, 5000);
+            </text>
+        }
+    </script>
+}
